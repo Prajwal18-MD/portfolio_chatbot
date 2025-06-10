@@ -131,7 +131,7 @@ pairs = [
     ]
 ],
     [
-    r".*(thank(s| you)|thx|cheers).*",
+    r".*(thank(s| you)|thank you|thx|cheers).*",
     [
         "You’re welcome! Is there anything else I can help you with today?",
         "Happy to help! Do you have any other questions?",
@@ -154,11 +154,21 @@ pairs = [
 ]
 ]
 
+# Instantiate once
+_chatbot = Chat(pairs, reflections)
+
+def get_response(text: str) -> str:
+    """
+    Return a single reply for the given user text.
+    """
+    reply = _chatbot.respond(text)
+    # If NLTK returns None (no match), use a default
+    return reply or "Hmm—I’m not sure how to answer that."
+
 def main():
-    print("=== NLTK Chatbot ===")
-    print("Type something and hit enter. Type 'bye' or 'exit' to quit.\n")
-    chat = Chat(pairs, reflections)
-    chat.converse()
+    print("=== NLTK Chatbot (interactive) ===")
+    print("Type 'exit' or 'bye' to quit.\n")
+    _chatbot.converse()
 
 if __name__ == "__main__":
     main()
