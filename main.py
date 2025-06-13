@@ -2,10 +2,14 @@ import os
 from fastapi import FastAPI, HTTPException
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
-
 from chatbot import get_response, RESUME_PATH
 
 app = FastAPI(title="Chatbot API")
+
+# ← INSERT HEALTH CHECK HERE
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
 
 class ChatRequest(BaseModel):
     message: str
@@ -23,9 +27,6 @@ async def chat_endpoint(req: ChatRequest):
 
 @app.get("/resume")
 async def resume_endpoint():
-    """
-    Serve the resume PDF for download.
-    """
     if not os.path.isfile(RESUME_PATH):
         raise HTTPException(404, detail="Resume not found")
     return FileResponse(
@@ -36,14 +37,5 @@ async def resume_endpoint():
 
 if __name__ == "__main__":
     import uvicorn
-    import os
-
-    # Read the port that Render assigns, default to 10000 for local dev
     port = int(os.environ.get("PORT", 10000))
-
-    uvicorn.run(
-        "main:app",
-        host="0.0.0.0",
-        port=port,
-        log_level="info"
-    )
+    uvicorn.run("main:app", host="0.0.0.0", port=port)
