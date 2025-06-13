@@ -33,3 +33,7 @@ async def resume_endpoint():
         media_type="application/pdf",
         filename="Prajwal_M_D_RESUME.pdf"
     )
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("main:app", host="0.0.0.0", port=10000)
