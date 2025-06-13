@@ -11,7 +11,7 @@ jobs:
     steps:
       - name: Ping /chat endpoint
         run: |
-          curl -X POST https://my-chatbot.onrender.com/chat \
+          curl -X POST https://portfoliochatbot-h3zm.onrender.com/chat \
                -H "Content-Type: application/json" \
                -d '{"message":"hi"}' \
                --silent --show-error --fail
