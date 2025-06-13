@@ -1,12 +1,28 @@
-import os
 from fastapi import FastAPI, HTTPException
+from fastapi.middleware.cors import CORSMiddleware       
 from fastapi.responses import FileResponse
 from pydantic import BaseModel
+import os
+
 from chatbot import get_response, RESUME_PATH
 
 app = FastAPI(title="Chatbot API")
 
-# ← INSERT HEALTH CHECK HERE
+# ─── CORS CONFIGURATION ────────────────────────────────────────────────────────
+# Allow any origin (replace ["*"] with your own domains in production)
+origins = [
+    "*"
+]
+
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=origins,            # which domains are allowed
+    allow_credentials=True,           # allow cookies, authorization headers
+    allow_methods=["*"],              # allow GET, POST, etc.
+    allow_headers=["*"],              # allow all headers
+)
+# ────────────────────────────────────────────────────────────────────────────────
+
 @app.get("/health")
 async def health():
     return {"status": "ok"}
