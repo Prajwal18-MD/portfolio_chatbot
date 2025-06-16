@@ -79,10 +79,10 @@ pairs = [
     [
     r".*(github|projects|portfolio|demos|live demos|code samples|source code|link).*",
     [
-        "You can find my projects in the project section here, or check out my GitHub: https://github.com/Prajwal18-MD",
-        "Feel free to explore my work in the project section, or visit my GitHub profile at https://github.com/Prajwal18-MD",
-        "My portfolio and live demos are available in the project section, and you can also see my code on GitHub: https://github.com/Prajwal18-MD",
-        "Check out my projects and live demos in the project section, or directly on GitHub here: https://github.com/Prajwal18-MD"
+        "You can find my projects in the project section here, or check out my GitHub.",
+        "Feel free to explore my work in the project section, or visit my GitHub profile.",
+        "My portfolio and live demos are available in the project section, and you can also see my code on GitHub.",
+        "Check out my projects and live demos in the project section, or directly on GitHub."
     ]
 ],
     [
