@@ -26,6 +26,7 @@ training_data = {
     'services': ["what services", "what do you offer", "capabilities", "what can you do", "services"],
     'tech_stack': ["programming languages", "frameworks", "technologies", "tech stack", "tools"],
     'projects': ["github", "portfolio", "projects", "demos", "code samples"],
+    'blogs':["blogs","do you write blogs","content","do you have medium", "Any blog accounts"],
     'resume': ["resume", "cv", "overview", "pdf", "download resume", "my resume", "send resume"],
     'workflow': ["workflow", "how do you start", "process", "approach"],
     'updates': ["project updates", "track progress", "status updates", "keep updated"],
@@ -85,6 +86,11 @@ responses = {
         "Feel free to explore my work in the project section, or visit my GitHub profile.",
         "My portfolio and live demos are available in the project section, and you can also see my code on GitHub.",
         "Check out my projects and live demos in the project section, or directly on GitHub."
+    ],
+    'blogs':[
+        "Yes, I write blogs on Medium! You can scroll down to the footer of my website to find the Medium icon — it’ll take you directly to my blog page.",
+        "Absolutely! I actively publish technical blogs on Medium, covering web development, project breakdowns, and productivity tips. You can explore them through the Medium link in my site’s footer.",
+        "Yes, I do blog regularly on Medium. Feel free to check out my posts — the Medium icon at the bottom of the page will take you there. Let me know what you think!"    
     ],
     'resume': [
         "Sure, here’s my resume: {}".format(RESUME_PATH),
